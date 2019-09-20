@@ -1,0 +1,50 @@
+#pragma config(Sensor, dgtl6,  touchSensor1,         sensorTouch)
+#pragma config(Sensor, dgtl5,  touchSensor2,         sensorTouch)
+#pragma config(Sensor, dgtl4,  touchSensor3,         sensorTouch)
+#pragma config(Motor,  port2,           rightMotor,    tmotorNormal, openLoop, reversed)
+#pragma config(Motor,  port3,           leftMotor,     tmotorNormal, openLoop, reversed)
+
+task main()
+{
+	while (1 == 1)
+	{
+		if(SensorValue(touchSensor1) == 1)
+		{
+				motor[rightMotor] = -63;
+			motor[leftMotor]  = -63;
+			wait1Msec(1000);
+			motor[rightMotor] = 90;
+			motor[leftMotor] = -90;
+			wait1Msec(500);
+	  }
+
+		if(SensorValue(touchSensor2) == 1)
+		{
+			wait1Msec(500);
+			motor[leftMotor] = -40;
+			motor[rightMotor] = -40;
+			wait1Msec(700);
+				motor[rightMotor] = -50;
+			motor[leftMotor]  = 90;
+			wait1Msec(500);
+    }
+
+    if(SensorValue(touchSensor3) == 1)
+    {
+    				wait1Msec(500);
+			motor[leftMotor] = -40;
+			motor[rightMotor] = -40;
+			wait1Msec(700);
+  			motor[rightMotor] = 90;
+      motor[leftMotor] = -50;
+      wait1Msec(500);
+		}
+
+		else
+		{
+			motor[rightMotor] = 80;
+			motor[leftMotor] = 80;
+		}
+	}
+}
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
